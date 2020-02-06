@@ -3,6 +3,7 @@ const merge = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const common = require('./webpack.common.js');
 
+const WorkboxPlugin = require('workbox-webpack-plugin');
 module.exports = merge(common, {
   mode: 'production',
   devtool: 'source-map',
@@ -19,7 +20,9 @@ module.exports = merge(common, {
     new Webpack.optimize.ModuleConcatenationPlugin(),
     new MiniCssExtractPlugin({
       filename: 'bundle.css'
-    })
+    }),
+
+    new WorkboxPlugin.GenerateSW()
   ],
   module: {
     rules: [
@@ -30,7 +33,7 @@ module.exports = merge(common, {
       },
       {
         test: /\.s?css/i,
-        use : [
+        use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
           'sass-loader'

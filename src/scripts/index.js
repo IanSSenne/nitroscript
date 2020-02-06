@@ -1,4 +1,4 @@
 
 
 
-import "./NitroScriptScriptElement.js";
+import NitroScriptAPI from "./NitroScriptAPI.js";

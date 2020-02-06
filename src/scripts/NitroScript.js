@@ -4,7 +4,7 @@ export class NitroScript extends null {
     constructor(source, el) {
         super();
         this.element = el;
-        this.currentScript = new NitroScriptCompiler(false);
+        this.currentScript = new NitroScriptCompiler(false, el.src);
         this.currentScript.compile(source);
     }
     loadModule(src) {

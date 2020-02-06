@@ -7,7 +7,7 @@ module.exports = merge(common, {
   mode: "development",
   devtool: "cheap-eval-source-map",
   output: {
-    chunkFilename: "js/[hash].chunk.js"
+    chunkFilename: "js/chunks/[name].js"
   },
   devServer: {
     inline: true

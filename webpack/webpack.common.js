@@ -1,8 +1,7 @@
 const Path = require('path');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
 module.exports = {
   entry: {
     app: Path.resolve(__dirname, '../src/scripts/index.js')
@@ -33,6 +32,10 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.jsx/,
+        use: 'babel-loader'
+      },
       {
         test: /\.mjs$/,
         include: /node_modules/,
